@@ -1,0 +1,9 @@
+{
+  "name": "narrative-checker-root",
+  "private": true,
+  "scripts": {
+    "llm-layer:dev": "pnpm --dir llm-layer --filter @narrative-checker/api dev",
+    "llm-layer:typecheck": "pnpm --dir llm-layer typecheck",
+    "llm-layer:test": "pnpm --dir llm-layer test"
+  }
+}

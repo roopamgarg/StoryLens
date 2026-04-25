@@ -1,0 +1,20 @@
+---
+description: Require plan-reviewer for all plan creation or updates
+alwaysApply: true
+---
+
+# Always Run Plan Reviewer
+
+When creating a new plan or updating an existing plan, always run the `plan-reviewer` subagent before finalizing the plan.
+
+## Required Workflow
+
+1. Draft or revise the plan content.
+2. Invoke the `plan-reviewer` subagent to review the latest plan.
+3. Incorporate critical and high-severity feedback into the plan.
+4. Present the updated plan only after review feedback has been addressed or explicitly deferred with rationale.
+
+## Enforcement Notes
+
+- This rule applies to every planning task.
+- Do not skip `plan-reviewer` even for minor plan updates.

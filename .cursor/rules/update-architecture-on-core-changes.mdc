@@ -1,0 +1,27 @@
+---
+description: Keep root Architecture.md updated for core code changes
+alwaysApply: true
+---
+
+# Update Architecture Documentation
+
+Whenever you make core code changes, you must create or update `Architecture.md` at the project root.
+
+## What Counts as Core Changes
+
+- New services, packages, modules, or major components
+- Changes to API contracts, data flow, or integration boundaries
+- Significant refactors that alter system behavior or structure
+- New infrastructure/runtime patterns that affect architecture decisions
+
+## Required Workflow
+
+1. Check whether `/Architecture.md` exists.
+2. If missing, create it with a concise system overview and structure.
+3. If present, update relevant sections to reflect the new architecture.
+4. Include impacted components, data flow changes, and rationale when non-obvious.
+
+## Quality Bar
+
+- Keep content concise, accurate, and current with code.
+- Prefer clear sections such as Overview, Components, Data Flow, and Key Decisions.
