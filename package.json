@@ -4,6 +4,7 @@
   "scripts": {
     "llm-layer:dev": "pnpm --dir llm-layer --filter @narrative-checker/api dev",
     "llm-layer:typecheck": "pnpm --dir llm-layer typecheck",
-    "llm-layer:test": "pnpm --dir llm-layer test"
+    "llm-layer:test": "pnpm --dir llm-layer test",
+    "web-app:dev": "pnpm --dir web-app dev"
   }
 }
