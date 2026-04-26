@@ -1,0 +1,48 @@
+---
+description: Validate plan adherence after implementing code from a plan
+alwaysApply: true
+---
+
+# Validate Plan Implementation
+
+After implementing code that originates from a plan, you MUST run a validation step before declaring the task complete.
+
+## When This Rule Applies
+
+Trigger validation when ANY of the following are true:
+- The current task references a `.cursor/plans/*.plan.md` file.
+- The `CreatePlan` tool was invoked earlier in the session and code has since been written.
+- The user explicitly says they are implementing a plan.
+
+If uncertain whether the task is plan-driven, ASK the user rather than skipping validation.
+
+## When This Rule Does NOT Apply
+
+- Pure documentation, comment-only, or formatting-only changes with no plan reference.
+- Ad-hoc one-off edits the user did not frame as a plan implementation.
+- Plan creation or refinement (covered by `use-plan-reviewer`).
+
+## Required Workflow
+
+1. Re-read the plan from disk using the Read tool. Do NOT rely on the context window; it may be stale.
+2. If the plan was modified during implementation, validate against the latest version on disk and note items added, removed, or amended since implementation began.
+3. For each numbered step or acceptance criterion, classify the implementation as one of:
+   - Done - code clearly matches the plan (cite file path + symbol or line range).
+   - Partial - implemented but deviates (note the deviation and reason).
+   - Missing - not implemented.
+   - Deferred - explicitly deferred by the user (e.g., to a later phase).
+   - N/A - non-code plan items (research spikes, design notes) with no code mapping.
+4. Output the validation report in chat with:
+   - Coverage: `(Done + 0.5 * Partial) / (Done + Partial + Missing)`. Exclude Deferred and N/A from the denominator.
+   - Missing items with the file/symbol where they were expected.
+   - Partial items with the specific deviation.
+   - Deferred items, for transparency.
+   - Any unplanned changes introduced (additions outside the plan).
+5. If coverage < 100% and the user has not explicitly accepted partial delivery, ASK whether to complete the missing items now or defer them.
+
+## Quality Bar
+
+- Map every Done item to actual code (file path + symbol/line).
+- Never silently drop plan items; surface them.
+- Do not inflate coverage - Partial counts as Partial, not Done.
+- Keep the report short: bullet list, not prose.
