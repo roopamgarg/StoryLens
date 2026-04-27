@@ -1,3 +1,4 @@
 [submodule "llm-layer"]
 	path = llm-layer
 	url = https://github.com/roopamgarg/storylens-llm-layer.git
+	branch = main
