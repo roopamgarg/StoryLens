@@ -2,3 +2,7 @@
 	path = llm-layer
 	url = https://github.com/roopamgarg/storylens-llm-layer.git
 	branch = main
+[submodule "web-app"]
+	path = web-app
+	url = https://github.com/roopamgarg/storylens-webapp.git
+	branch = main
