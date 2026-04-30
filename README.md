@@ -149,7 +149,7 @@ Core responsibilities:
 
 ```mermaid
 flowchart LR
-  input[Story input] --> proxy[/api extract proxy]
+  input[Story input] --> proxy[API extract proxy route]
   proxy --> backend[llm-layer extract API]
   backend --> events[Extracted events]
   events --> modes[Mode selector]
